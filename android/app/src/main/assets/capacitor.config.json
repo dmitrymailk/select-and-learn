@@ -1,0 +1,6 @@
+{
+	"appId": "select.and.learn.web.app",
+	"appName": "Select and Learn!",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
