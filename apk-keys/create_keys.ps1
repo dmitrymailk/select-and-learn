@@ -1,0 +1,1 @@
+&"C:\Program Files\Java\jdk-11.0.13\bin\keytool.exe" -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -validity 10000
