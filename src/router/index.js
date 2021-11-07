@@ -4,12 +4,12 @@ import Authorization from "../Authorization/Authorization.vue";
 
 const routes = [
   {
-    path: "/login",
-    component: Authorization,
-  },
-  {
     path: "/",
     component: Tabs,
+  },
+  {
+    path: "/login",
+    component: Authorization,
   },
 ];
 
@@ -25,6 +25,7 @@ router.beforeEach((to, from, next) => {
   store.commit("UPDATE_LINK", from.fullPath);
   const publicPages = ["/login"];
   const isPrivatePage = !publicPages.includes(to.path);
+  console.log("isPrivatePage", isPrivatePage);
   if (isPrivatePage) {
     if (store.getters.isAuthenticated) {
       // set link for next usage

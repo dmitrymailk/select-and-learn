@@ -1,12 +1,16 @@
 <template>
   <ion-app>
-    <ion-router-outlet />
+    <ion-tabs>
+      <ion-router-outlet />
+    </ion-tabs>
   </ion-app>
 </template>
 
 <script>
-import { IonApp, IonRouterOutlet } from "@ionic/vue";
+import { IonApp, IonRouterOutlet, IonTabs } from "@ionic/vue";
 import { defineComponent } from "vue";
+
+// import store from "./store/index";
 import "./assets/style/bootstrap.min.css";
 
 export default defineComponent({
@@ -14,6 +18,7 @@ export default defineComponent({
   components: {
     IonApp,
     IonRouterOutlet,
+    IonTabs,
   },
 });
 </script>

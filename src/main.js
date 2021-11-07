@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store/index";
 
+import { Storage } from "@capacitor/storage";
 import { IonicVue } from "@ionic/vue";
 
 /* Core CSS required for Ionic components to work properly */
@@ -26,6 +27,22 @@ import "./theme/variables.css";
 
 const app = createApp(App).use(IonicVue).use(router).use(store);
 
-router.isReady().then(() => {
-  app.mount("#app");
-});
+const checkAuth = async () => {
+  const { value } = await Storage.get({ key: "access" });
+  if (value) {
+    console.log("VALUE commit", value);
+    store.commit("AUTH_SUCCESS", value);
+    router.push("/");
+  }
+};
+const startApp = async () => {
+  await checkAuth();
+  const mountApp = async () => {
+    router.isReady().then(async () => {
+      app.mount("#app");
+    });
+  };
+  await mountApp();
+};
+
+startApp();

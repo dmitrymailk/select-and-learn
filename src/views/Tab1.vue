@@ -13,7 +13,7 @@
       </ion-header>
 
       <ion-button color="primary" @click="getClipboard">Paste</ion-button>
-      <!-- <ion-button color="primary" @click="clearStorage">Clear Storage</ion-button> -->
+      <ion-button color="primary" @click="clearStorage">Clear Storage</ion-button>
       <p>Content - {{ clipboardData }}</p>
     </ion-content>
   </ion-page>
@@ -61,6 +61,16 @@ export default {
       };
       await setName();
       this.clipboardData = clip.value;
+    },
+    clearStorage() {
+      console.log("clear storage");
+      const some = async () => {
+        await Storage.remove({
+          key: "access",
+        });
+        window.localStorage.removeItem("access");
+      };
+      some();
     },
   },
 };

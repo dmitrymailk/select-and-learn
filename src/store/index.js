@@ -3,14 +3,9 @@ import { createStore } from "vuex";
 import { apiServer } from "../utils/api";
 import { Storage } from "@capacitor/storage";
 
-const getItem = async (name) => {
-  const { value } = await Storage.get({ key: name });
-  return value;
-};
-
 let store = createStore({
   state: {
-    token: async () => getItem("access") || "",
+    token: "",
     status: "",
     articles: [],
     isAuth: true,
