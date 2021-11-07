@@ -2,6 +2,7 @@ import axios from "axios";
 import store from "../store/index";
 // import router from "../router";
 import { config } from "../config/config";
+import { Storage } from "@capacitor/storage";
 
 var apiServer = axios.create({
   baseURL: config.url,
@@ -29,8 +30,12 @@ apiServer.interceptors.response.use(
   }
 );
 
-const token = localStorage.getItem("access");
-if (token) {
-  apiServer.defaults.headers.authorization = `Bearer ${token}`;
-}
+const setToken = async () => {
+  const token = await Storage.get({ key: "access" });
+  if (token) {
+    apiServer.defaults.headers.authorization = `Bearer ${token}`;
+  }
+};
+setToken();
+
 export { apiServer, staticFiles };
