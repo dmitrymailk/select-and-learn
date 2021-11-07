@@ -1,5 +1,5 @@
 {
-	"appId": "select.and.learn.web.app",
+	"appId": "io.ionic.starter",
 	"appName": "Select and Learn!",
 	"webDir": "dist",
 	"bundledWebRuntime": false

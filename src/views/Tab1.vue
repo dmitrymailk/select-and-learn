@@ -13,6 +13,7 @@
       </ion-header>
 
       <ExploreContainer name="Tab 1 page changed" />
+      <h2>Content - {{ someData }}</h2>
     </ion-content>
   </ion-page>
 </template>
@@ -30,6 +31,14 @@ export default {
     IonTitle,
     IonContent,
     IonPage,
+  },
+  data() {
+    return {
+      someData: "",
+    };
+  },
+  mounted() {
+    this.someData = "someData";
   },
 };
 </script>

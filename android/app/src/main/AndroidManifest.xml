@@ -23,7 +23,7 @@
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="com.darryncampbell.cordova.plugin.intent.ACTION"/>
-                <data android:mimeType="*/*" />
+                <data android:mimeType="text/plain" />
             </intent-filter>
 
         </activity>
