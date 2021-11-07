@@ -12,33 +12,55 @@
         </ion-toolbar>
       </ion-header>
 
-      <ExploreContainer name="Tab 1 page changed" />
-      <h2>Content - {{ someData }}</h2>
+      <h2>Content - {{ clipboardData }}</h2>
+      <ion-button color="primary" @click="getClipboard">Paste</ion-button>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from "@ionic/vue";
-import ExploreContainer from "../components/ExploreContainer.vue";
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButton,
+} from "@ionic/vue";
+import { Clipboard } from "@capacitor/clipboard";
+import { Storage } from "@capacitor/storage";
 
 export default {
   name: "Tab1",
   components: {
-    ExploreContainer,
     IonHeader,
     IonToolbar,
     IonTitle,
     IonContent,
     IonPage,
+    IonButton,
   },
   data() {
     return {
-      someData: "",
+      clipboardData: "",
     };
   },
-  mounted() {
-    this.someData = "someData";
+  async mounted() {
+    const { value } = await Storage.get({ key: "selectedSentence" });
+    this.clipboardData = value;
+  },
+  methods: {
+    async getClipboard() {
+      const clip = await Clipboard.read();
+      const setName = async () => {
+        await Storage.set({
+          key: "selectedSentence",
+          value: clip.value,
+        });
+      };
+      await setName();
+      this.clipboardData = clip.value;
+    },
   },
 };
 </script>
