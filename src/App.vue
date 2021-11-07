@@ -7,6 +7,7 @@
 <script>
 import { IonApp, IonRouterOutlet } from "@ionic/vue";
 import { defineComponent } from "vue";
+import "./assets/style/bootstrap.min.css";
 
 export default defineComponent({
   name: "App",

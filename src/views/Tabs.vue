@@ -1,11 +1,11 @@
 <template>
   <ion-page>
     <ion-tabs>
-      <ion-router-outlet></ion-router-outlet>
+      <Tab1 />
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="tab1" href="/tabs/tab1">
           <ion-icon :icon="triangle" />
-          <ion-label>Tab 1</ion-label>
+          <ion-label>Add new words</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -20,9 +20,10 @@ import {
   IonLabel,
   IonIcon,
   IonPage,
-  IonRouterOutlet,
+  // IonRouterOutlet,
 } from "@ionic/vue";
 import { ellipse, square, triangle } from "ionicons/icons";
+import Tab1 from "./Tab1.vue";
 
 export default {
   name: "Tabs",
@@ -33,7 +34,8 @@ export default {
     IonTabButton,
     IonIcon,
     IonPage,
-    IonRouterOutlet,
+    // IonRouterOutlet,
+    Tab1,
   },
   setup() {
     return {

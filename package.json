@@ -22,11 +22,17 @@
     "@ionic-native/web-intent": "^5.36.0",
     "@ionic/vue": "^5.4.0",
     "@ionic/vue-router": "^5.4.0",
+    "axios": "^0.24.0",
     "com-darryncampbell-cordova-plugin-intent": "^2.2.0",
     "core-js": "^3.6.5",
+    "node-sass": "^6.0.1",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "sass-loader": "^10",
     "send-intent": "^3.0.1",
     "vue": "^3.2.1",
-    "vue-router": "^4.0.0-0"
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@capacitor/cli": "3.3.1",

@@ -2,18 +2,19 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Tab 1</ion-title>
+        <ion-title>Select and Learn! (extension)</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Tab 1</ion-title>
+          <ion-title size="large">Select and Learn! (extension)</ion-title>
         </ion-toolbar>
       </ion-header>
 
-      <h2>Content - {{ clipboardData }}</h2>
       <ion-button color="primary" @click="getClipboard">Paste</ion-button>
+      <!-- <ion-button color="primary" @click="clearStorage">Clear Storage</ion-button> -->
+      <p>Content - {{ clipboardData }}</p>
     </ion-content>
   </ion-page>
 </template>
